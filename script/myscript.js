@@ -1,9 +1,9 @@
 /*
-    1 numeri generati casualmente
-    2 timer per memorizzare
-    3 richiesta inserire numeri
+    1 definisco una funzione che generi dei numeri casuali
+    2 faccio scorrere un timer per permettere di memorizzare i numeri
+    3 richiedo di inserire numeri
     4 confronto
-    5 stampa confronto
+    5 stampo il confronto
 */
 
 let numeri = [];
@@ -19,26 +19,20 @@ let numeriIndovinati = [];
 let timer = document.querySelector(".timer");
 let time = 5;
 
+let risultato = document.querySelector(".risultato");
+
 let clock = setInterval(() => {
     time--;
     timer.innerHTML = time;
     if(time === 0){
         clearInterval(clock);
-        container.innerHTML += numeriIndovinati;
+        container.classList.add("display-none");
+        timer.classList.add("display-none");
+        checkNumeri();
+        risultato.innerHTML += numeriIndovinati;
     }
 }, 1000);
 
-
-let numeriIpotesi = []; 
-for(let i = 0; i < 5; i++){
-    numeriIpotesi[i]= parseInt(prompt("Indovina i numeri: "));
-}
-
-for(let i = 0; i < numeri.length; i++){
-    if((numeri.includes(numeriIpotesi[i]))){
-        numeriIndovinati.push(numeriIpotesi[i]);
-    }
-}
 
 //funzioni
 function randomNum(){
@@ -47,4 +41,16 @@ function randomNum(){
         numeri.push(numero);
     }
     return numero;
+}
+
+function checkNumeri() {
+    let numeriIpotesi = []; 
+    for(let i = 0; i < 5; i++){
+        numeriIpotesi[i]= parseInt(prompt("Indovina i numeri: "));
+    }
+    for(let i = 0; i < numeri.length; i++){
+        if((numeri.includes(numeriIpotesi[i]))){
+            numeriIndovinati.push(numeriIpotesi[i]);
+        }
+    }
 }
