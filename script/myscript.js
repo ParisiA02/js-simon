@@ -1,3 +1,11 @@
+/*
+    1 numeri generati casualmente
+    2 timer per memorizzare
+    3 richiesta inserire numeri
+    4 confronto
+    5 stampa confronto
+*/
+
 let numeri = [];
 
 for(let i = 0; i < 5; i++){
@@ -14,7 +22,6 @@ let clock = setInterval(() => {
     timer.innerHTML = time;
     if(time === 0){
         clearInterval(clock);
-        container.innerHTML = `Numeri indovinati: ${numeriIndovinati}`;
     }
 }, 1000);
 
