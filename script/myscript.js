@@ -14,6 +14,8 @@ for(let i = 0; i < 5; i++){
 let container = document.querySelector(".container");
 container.innerHTML += numeri;
 
+let numeriIndovinati = [];
+
 let timer = document.querySelector(".timer");
 let time = 5;
 
@@ -22,6 +24,7 @@ let clock = setInterval(() => {
     timer.innerHTML = time;
     if(time === 0){
         clearInterval(clock);
+        container.innerHTML += numeriIndovinati;
     }
 }, 1000);
 
@@ -31,13 +34,11 @@ for(let i = 0; i < 5; i++){
     numeriIpotesi[i]= parseInt(prompt("Indovina i numeri: "));
 }
 
-let numeriIndovinati = [];
 for(let i = 0; i < numeri.length; i++){
     if((numeri.includes(numeriIpotesi[i]))){
         numeriIndovinati.push(numeriIpotesi[i]);
     }
 }
-container.innerHTML += numeriIndovinati;
 
 //funzioni
 function randomNum(){
